@@ -478,7 +478,7 @@ namespace WinMemoryCleaner.Test
 
                 Assert.IsNotNull(title);
                 Assert.IsNotEmpty(title);
-                StringAssert.Contains("Windows Memory Cleaner", title);
+                StringAssert.Contains("Cloud Computer AI.com Memory", title);
             }
 
             [Test]

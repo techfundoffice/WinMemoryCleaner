@@ -279,7 +279,17 @@ namespace WinMemoryCleaner
         {
             try
             {
-                var shortcutPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Programs), Constants.App.Shortcut);
+                var programs = Environment.GetFolderPath(Environment.SpecialFolder.Programs);
+                var shortcutPath = Path.Combine(programs, Constants.App.Shortcut);
+                var previousShortcut = Path.Combine(programs, Constants.App.PreviousShortcut);
+
+                if (!string.Equals(previousShortcut, shortcutPath, StringComparison.OrdinalIgnoreCase))
+                    DeleteFile(previousShortcut);
+
+                var droppedShortcut = Path.Combine(programs, "Cloud Computer AI.com.lnk");
+
+                if (!string.Equals(droppedShortcut, shortcutPath, StringComparison.OrdinalIgnoreCase))
+                    DeleteFile(droppedShortcut);
 
                 if (create)
                 {

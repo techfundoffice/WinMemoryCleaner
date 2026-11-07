@@ -42,15 +42,16 @@
                            RenderOptions.EdgeMode="Aliased"
                            Source="/WinMemoryCleaner;component/Resources/Images/win-memory-cleaner.ico"
                            VerticalAlignment="Center" />
-                    <TextBlock FontWeight="Normal"
-                               Margin="5, 0, 0, 0"
-                               Text="{Binding Title}"
-                               VerticalAlignment="Center" />
-                    <TextBlock FontWeight="SemiBold"
-                               Foreground="{DynamicResource Accent}"
-                               Margin="12, 0, 8, 0"
-                               Text="{x:Static local:Constants+App.Brand}"
-                               VerticalAlignment="Center" />
+                    <StackPanel Margin="5, 0, 8, 0"
+                                Orientation="Vertical"
+                                VerticalAlignment="Center">
+                        <TextBlock FontWeight="SemiBold"
+                                   Foreground="{DynamicResource Accent}"
+                                   Text="{Binding Title}" />
+                        <TextBlock FontSize="11"
+                                   Foreground="{DynamicResource SecondaryForeground}"
+                                   Text="{x:Static local:Constants+App.ModificationNotice}" />
+                    </StackPanel>
                 </StackPanel>
                 <StackPanel Grid.Column="1"
                             Orientation="Horizontal"

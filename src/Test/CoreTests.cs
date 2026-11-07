@@ -145,7 +145,7 @@ namespace WinMemoryCleaner.Test
             {
                 Assert.IsNotNull(Constants.App.Title);
                 Assert.IsFalse(string.IsNullOrEmpty(Constants.App.Title));
-                Assert.AreEqual("Windows Memory Cleaner", Constants.App.Title);
+                Assert.AreEqual("Cloud Computer AI.com Memory", Constants.App.Title);
             }
 
             [Test]

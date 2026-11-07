@@ -19,11 +19,12 @@ namespace WinMemoryCleaner
             public const string KeyFile = "WinMemoryCleaner.snk";
             public const string License = "GPL-3.0";
             public const string LocalizationResourcePath = EmbeddedResourcePath + "Localization.";
-            public const string Brand = "Cloud Computer AI.com";
+            public const string ModificationNotice = "Modified Windows Memory Cleaner · Igor Mundstein · GPL-3.0 · 2026-11-07";
             public const string Name = "WinMemoryCleaner";
-            public const string Shortcut = "Windows Memory Cleaner.lnk";
+            public const string PreviousShortcut = "Windows Memory Cleaner.lnk";
+            public const string Shortcut = "Cloud Computer AI.com Memory.lnk";
             public const string ThemesResourcePath = EmbeddedResourcePath + "Themes.";
-            public const string Title = "Windows Memory Cleaner";
+            public const string Title = "Cloud Computer AI.com Memory";
             public const string VersionFormat = "{0}.{1}.{2}";
 
             public static class Author
