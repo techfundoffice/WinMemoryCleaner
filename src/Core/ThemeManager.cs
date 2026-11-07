@@ -192,15 +192,15 @@ namespace WinMemoryCleaner
 
                 var defaultResources = new Dictionary<string, WpfColor>
                 {
-                    { "Accent", WpfColor.FromArgb(0xFF, 0x00, 0xAE, 0xF7) },
+                    { "Accent", WpfColor.FromArgb(0xFF, 0x00, 0x52, 0xD6) },
                     { "MemoryBarIndicatorBackground", WpfColor.FromArgb(0xFF, 0xE0, 0x36, 0x0A) },
                     { "MemoryBarTrackBackground", WpfColor.FromArgb(0xFF, 0x00, 0xAA, 0x41) },
-                    { "PrimaryBackground", WpfColor.FromArgb(0xFF, 0x20, 0x20, 0x20) },
-                    { "PrimaryBorder", WpfColor.FromArgb(0xFF, 0x30, 0x30, 0x30) },
-                    { "SecondaryBackground", WpfColor.FromArgb(0xFF, 0x2C, 0x2C, 0x2C) },
-                    { "SecondaryBorder", WpfColor.FromArgb(0xFF, 0x70, 0x70, 0x70) },
-                    { "SecondaryDisabled", WpfColor.FromArgb(0xFF, 0x99, 0x99, 0x99) },
-                    { "SecondaryForeground", WpfColor.FromArgb(0xFF, 0xFF, 0xFF, 0xFF) }
+                    { "PrimaryBackground", WpfColor.FromArgb(0xFF, 0xFF, 0xFF, 0xFF) },
+                    { "PrimaryBorder", WpfColor.FromArgb(0xFF, 0x0A, 0x1B, 0x3D) },
+                    { "SecondaryBackground", WpfColor.FromArgb(0xFF, 0xFF, 0xFF, 0xFF) },
+                    { "SecondaryBorder", WpfColor.FromArgb(0xFF, 0x00, 0x52, 0xD6) },
+                    { "SecondaryDisabled", WpfColor.FromArgb(0xFF, 0x3E, 0x56, 0x78) },
+                    { "SecondaryForeground", WpfColor.FromArgb(0xFF, 0x0A, 0x1B, 0x3D) }
                 };
 
                 foreach (var kvp in defaultResources)
@@ -401,7 +401,7 @@ namespace WinMemoryCleaner
         /// </summary>
         public static WinFormsColor AccentColor
         {
-            get { return GetColorSafe(Helper.NameOf(() => AccentColor).Replace("Color", string.Empty), WinFormsColor.DeepSkyBlue); }
+            get { return GetColorSafe(Helper.NameOf(() => AccentColor).Replace("Color", string.Empty), WinFormsColor.FromArgb(0, 82, 214)); }
         }
 
         /// <summary>
@@ -409,7 +409,7 @@ namespace WinMemoryCleaner
         /// </summary>
         public static WinFormsColor PrimaryBackgroundColor
         {
-            get { return GetColorSafe(Helper.NameOf(() => PrimaryBackgroundColor).Replace("Color", string.Empty), WinFormsColor.FromArgb(32, 32, 32)); }
+            get { return GetColorSafe(Helper.NameOf(() => PrimaryBackgroundColor).Replace("Color", string.Empty), WinFormsColor.White); }
         }
 
         /// <summary>
@@ -417,7 +417,7 @@ namespace WinMemoryCleaner
         /// </summary>
         public static WinFormsColor SecondaryBackgroundColor
         {
-            get { return GetColorSafe(Helper.NameOf(() => SecondaryBackgroundColor).Replace("Color", string.Empty), WinFormsColor.DarkSlateGray); }
+            get { return GetColorSafe(Helper.NameOf(() => SecondaryBackgroundColor).Replace("Color", string.Empty), WinFormsColor.White); }
         }
         
         /// <summary>
@@ -425,7 +425,7 @@ namespace WinMemoryCleaner
         /// </summary>
         public static WinFormsColor SecondaryBorderColor
         {
-            get { return GetColorSafe(Helper.NameOf(() => SecondaryBorderColor).Replace("Color", string.Empty), WinFormsColor.DimGray); }
+            get { return GetColorSafe(Helper.NameOf(() => SecondaryBorderColor).Replace("Color", string.Empty), WinFormsColor.FromArgb(0, 82, 214)); }
         }
 
         /// <summary>
@@ -433,7 +433,7 @@ namespace WinMemoryCleaner
         /// </summary>
         public static WinFormsColor SecondaryForegroundColor
         {
-            get { return GetColorSafe(Helper.NameOf(() => SecondaryForegroundColor).Replace("Color", string.Empty), WinFormsColor.White); }
+            get { return GetColorSafe(Helper.NameOf(() => SecondaryForegroundColor).Replace("Color", string.Empty), WinFormsColor.FromArgb(10, 27, 61)); }
         }
 
         private static WinFormsColor GetColorSafe(string resourceKey, WinFormsColor fallback)

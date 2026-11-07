@@ -19,6 +19,7 @@ namespace WinMemoryCleaner
             public const string KeyFile = "WinMemoryCleaner.snk";
             public const string License = "GPL-3.0";
             public const string LocalizationResourcePath = EmbeddedResourcePath + "Localization.";
+            public const string Brand = "Cloud Computer AI.com";
             public const string Name = "WinMemoryCleaner";
             public const string Shortcut = "Windows Memory Cleaner.lnk";
             public const string ThemesResourcePath = EmbeddedResourcePath + "Themes.";

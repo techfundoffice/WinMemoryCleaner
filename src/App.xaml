@@ -6,7 +6,7 @@
             <!-- Shared fade animation storyboard - fades button border from Accent to gray over 1 second -->
             <Storyboard x:Key="ButtonBorderFadeOutStoryboard">
                 <!-- Accent & SecondaryBorder colors -->
-                <ColorAnimation Duration="0:0:1" From="#00AEF7" Storyboard.TargetName="ButtonBorder" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="#707070" />
+                <ColorAnimation Duration="0:0:1" From="#0052D6" Storyboard.TargetName="ButtonBorder" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="#5A7AA8" />
             </Storyboard>
             <!-- Converters -->
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
@@ -20,15 +20,15 @@
             <local:SumNumericConverter x:Key="SumNumericConverter" />
             <local:ViewModelLocator x:Key="ViewModelLocator" />
             <!-- Colors -->
-            <SolidColorBrush x:Key="Accent" Color="#00AEF7" />
+            <SolidColorBrush x:Key="Accent" Color="#0052D6" />
             <SolidColorBrush x:Key="MemoryBarIndicatorBackground" Color="#E0360A" />
             <SolidColorBrush x:Key="MemoryBarTrackBackground" Color="#00AA41" />
-            <SolidColorBrush x:Key="PrimaryBackground" Color="#202020" />
-            <SolidColorBrush x:Key="PrimaryBorder" Color="#303030" />
-            <SolidColorBrush x:Key="SecondaryBackground" Color="#2C2C2C" />
-            <SolidColorBrush x:Key="SecondaryBorder" Color="#707070" />
-            <SolidColorBrush x:Key="SecondaryDisabled" Color="#999999" />
-            <SolidColorBrush x:Key="SecondaryForeground" Color="#FFFFFF" />
+            <SolidColorBrush x:Key="PrimaryBackground" Color="#FFFFFF" />
+            <SolidColorBrush x:Key="PrimaryBorder" Color="#0A1B3D" />
+            <SolidColorBrush x:Key="SecondaryBackground" Color="#FFFFFF" />
+            <SolidColorBrush x:Key="SecondaryBorder" Color="#0052D6" />
+            <SolidColorBrush x:Key="SecondaryDisabled" Color="#3E5678" />
+            <SolidColorBrush x:Key="SecondaryForeground" Color="#0A1B3D" />
             <!-- Font -->
             <FontFamily x:Key="FontFamily">Calibri</FontFamily>
             <System:Double x:Key="FontSize">15</System:Double>

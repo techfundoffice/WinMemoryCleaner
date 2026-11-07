@@ -90,6 +90,27 @@ namespace WinMemoryCleaner
 
         #region Methods
 
+        /// <summary>
+        /// Reads a saved tray color. Factory colors from the previous palette stay on the new defaults.
+        /// </summary>
+        private static Brush LoadTrayColor(RegistryKey key, string name, Brush fallback, params string[] previousFactoryHex)
+        {
+            var stored = Convert.ToString(key.GetValue(name, null), _culture);
+
+            if (string.IsNullOrWhiteSpace(stored))
+                return fallback;
+
+            stored = stored.Trim();
+
+            foreach (var previous in previousFactoryHex)
+            {
+                if (string.Equals(stored, previous, StringComparison.OrdinalIgnoreCase))
+                    return fallback;
+            }
+
+            return stored.ToBrush(fallback);
+        }
+
         private static void Load(bool loadUserValues = true)
         {
             // Default values
@@ -112,15 +133,15 @@ namespace WinMemoryCleaner
             ShowOptimizationNotifications = true;
             ShowVirtualMemory = false;
             StartMinimized = false;
-            TrayIconBackgroundColor = Brushes.DarkGreen;
-            TrayIconDangerColor = Brushes.DarkRed;
+            TrayIconBackgroundColor = new SolidBrush(Color.FromArgb(10, 27, 61));
+            TrayIconDangerColor = new SolidBrush(Color.FromArgb(32, 184, 248));
             TrayIconDangerLevel = 90;
             TrayIconOptimizeOnMiddleMouseClick = false;
-            TrayIconOptimizingColor = Brushes.DimGray;
+            TrayIconOptimizingColor = new SolidBrush(Color.FromArgb(0, 96, 224));
             TrayIconShowMemoryUsage = false;
             TrayIconTextColor = Brushes.White;
             TrayIconUseTransparentBackground = false;
-            TrayIconWarningColor = Brushes.DarkGoldenrod;
+            TrayIconWarningColor = new SolidBrush(Color.FromArgb(0, 72, 208));
             TrayIconWarningLevel = 80;
             UseHotkey = false;
 
@@ -185,15 +206,15 @@ namespace WinMemoryCleaner
                         ShowOptimizationNotifications = Convert.ToBoolean(key.GetValue(Helper.NameOf(() => ShowOptimizationNotifications), ShowOptimizationNotifications), _culture);
                         ShowVirtualMemory = Convert.ToBoolean(key.GetValue(Helper.NameOf(() => ShowVirtualMemory), ShowVirtualMemory), _culture);
                         StartMinimized = Convert.ToBoolean(key.GetValue(Helper.NameOf(() => StartMinimized), StartMinimized), _culture);
-                        TrayIconBackgroundColor = Convert.ToString(key.GetValue(Helper.NameOf(() => TrayIconBackgroundColor), TrayIconBackgroundColor), _culture).ToBrush(TrayIconBackgroundColor);
-                        TrayIconDangerColor = Convert.ToString(key.GetValue(Helper.NameOf(() => TrayIconDangerColor), TrayIconDangerColor), _culture).ToBrush(TrayIconDangerColor);
+                        TrayIconBackgroundColor = LoadTrayColor(key, Helper.NameOf(() => TrayIconBackgroundColor), TrayIconBackgroundColor, "#FF006400", "#006400");
+                        TrayIconDangerColor = LoadTrayColor(key, Helper.NameOf(() => TrayIconDangerColor), TrayIconDangerColor, "#FF8B0000", "#8B0000");
                         TrayIconDangerLevel = Convert.ToByte(key.GetValue(Helper.NameOf(() => TrayIconDangerLevel), TrayIconDangerLevel), _culture);
                         TrayIconOptimizeOnMiddleMouseClick = Convert.ToBoolean(key.GetValue(Helper.NameOf(() => TrayIconOptimizeOnMiddleMouseClick), TrayIconOptimizeOnMiddleMouseClick), _culture);
-                        TrayIconOptimizingColor = Convert.ToString(key.GetValue(Helper.NameOf(() => TrayIconOptimizingColor), TrayIconOptimizingColor), _culture).ToBrush(TrayIconOptimizingColor);
+                        TrayIconOptimizingColor = LoadTrayColor(key, Helper.NameOf(() => TrayIconOptimizingColor), TrayIconOptimizingColor, "#FF696969", "#696969");
                         TrayIconShowMemoryUsage = Convert.ToBoolean(key.GetValue(Helper.NameOf(() => TrayIconShowMemoryUsage), TrayIconShowMemoryUsage), _culture);
                         TrayIconTextColor = Convert.ToString(key.GetValue(Helper.NameOf(() => TrayIconTextColor), TrayIconTextColor), _culture).ToBrush(TrayIconTextColor);
                         TrayIconUseTransparentBackground = Convert.ToBoolean(key.GetValue(Helper.NameOf(() => TrayIconUseTransparentBackground), TrayIconUseTransparentBackground), _culture);
-                        TrayIconWarningColor = Convert.ToString(key.GetValue(Helper.NameOf(() => TrayIconWarningColor), TrayIconWarningColor), _culture).ToBrush(TrayIconWarningColor);
+                        TrayIconWarningColor = LoadTrayColor(key, Helper.NameOf(() => TrayIconWarningColor), TrayIconWarningColor, "#FFB8860B", "#B8860B");
                         TrayIconWarningLevel = Convert.ToByte(key.GetValue(Helper.NameOf(() => TrayIconWarningLevel), TrayIconWarningLevel), _culture);
                         UseHotkey = Convert.ToBoolean(key.GetValue(Helper.NameOf(() => UseHotkey), UseHotkey), _culture);
                     }
